@@ -1,42 +1,40 @@
 {
 
-    "name": "作品集",
+    "name": "E小说",
 
-    "url": "zuopinj.com",
+    "url": "www.zeda.com",
 
     "version": 100,
 
     "search": {
 
-        "url": "http://so.zuopinj.com/search/index.php@post->tbname=bookname&show=title&tempid=3&keyboard=${key}",
+        "url": "https://m.zwda.com/search.php?keyword=${key}",
 
-        "list": ".search-bookele",
+        "list": ".result-list>div",
 
         "name": "h3",
 
+        "author": ".result-game-item-info-tag > span:nth-child(2)",
+
         "cover": "img",
 
-        "detail": "a"
+        "detail": "h3>a"
 
     },
 
     "detail": {
 
-        "author": ".infos > span@match->(?<=作者：).+(?=最后更新)",
+        "status": "meta[property=og:novel:status]@attr->content",
 
-        "summary": ".book_info > p",
+        "update": "meta[property=og:novel:update_time]@attr->content",
 
-        "status": ".infos > span@match->(?<=状态：).+(?=人在读)",
-
-        "update": ".infos > span@match->(?<=最后更新：).+(?=状态)",
-
-        "lastChapter": ".upd > a"
+        "lastChapter": "meta[property=og:novel:latest_chapter_name]@attr->content"
 
     },
 
     "catalog": {
 
-        "list": ".book_list > ul > li",
+        "list": "#list>dl>dd",
 
         "name": "a",
 
@@ -46,7 +44,7 @@
 
     "chapter": {
 
-        "content": "#htmlContent > p"
+        "content": "#content"
 
     }
 
